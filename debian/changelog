@@ -1,3 +1,32 @@
+xxhash (0.8.1-1) unstable; urgency=medium
+
+  * New maintainer. Closes: #1003524.
+  * debian/copyright: Update copyright holder years for debian/*.
+  * debian/control: Document Rules Requires Root as no.
+  * Update package to use debhelper-compat = 13.
+  * Bump Standards-Version to 4.6.0. No changes required.
+
+ -- Josue Ortega <josue@debian.org>  Fri, 14 Jan 2022 08:49:06 -0600
+
+xxhash (0.8.1-0.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+
+  [ Norbert Preining ]
+  * bump symbol versions to ensure that now 0.7 version interfers (LP: #1934992)
+
+  [ Balint Reczey ]
+  * New upstream version 0.8.1 (Closes: #1003073)
+  * Drop upstream-b4dbf5fefc37b8a-fix-empty-version-in-pc-file patch.
+    It is included in the new upstream release
+  * Update symbols
+  * Rework shipping man pages
+  * Move packaging repository to Salsa
+  * Orphaning the package according to Norbert's request.
+    Thank you for the many years of work on the package!
+
+ -- Balint Reczey <balint@balintreczey.hu>  Tue, 11 Jan 2022 11:19:45 +0100
+
 xxhash (0.8.0-2) unstable; urgency=medium
 
   * Use hardware-accelerated XXH3 computation on x86 architecture, and

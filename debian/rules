@@ -17,3 +17,6 @@ override_dh_auto_install:
 
 # not to be run, removes compiled files
 override_dh_auto_test:
+
+# do not check for uninstalled man pages
+override_dh_missing:
