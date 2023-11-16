@@ -1,3 +1,9 @@
+xxhash (0.8.1-1pexip1) pexip-bookworm; urgency=medium
+
+  * Initial bookworm build
+
+ -- Mark Hymers <mark.hymers@pexip.com>  Thu, 16 Nov 2023 10:35:46 +0000
+
 xxhash (0.8.1-1) unstable; urgency=medium
 
   * New maintainer. Closes: #1003524.
