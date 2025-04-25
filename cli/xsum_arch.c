@@ -1,6 +1,6 @@
 /*
  * xxhsum - Command line interface for xxhash algorithms
- * Copyright (C) 2013-2021 Yann Collet
+ * Copyright (C) 2013-2024 Yann Collet
  *
  * GPL v2 License
  *
@@ -23,40 +23,29 @@
  *   - xxHash source repository: https://github.com/Cyan4973/xxHash
  */
 
-#ifndef XSUM_OUTPUT_H
-#define XSUM_OUTPUT_H
+int g_xsumarch_avoid_empty_unit = 0;
 
-#include "xsum_config.h"
+#if ((defined(__x86_64__) || defined(_M_AMD64) || defined(_M_X64)) && !defined(_M_ARM64EC)) || defined(__i386__) || defined(_M_IX86) || defined(_M_IX86_FP)
+#if defined(XXHSUM_DISPATCH)
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include "../xxh_x86dispatch.h"
 
-/*
- * How verbose the output is.
- */
-extern int XSUM_logLevel;
-
-/*
- * Same as fprintf(stderr, format, ...)
- */
-XSUM_ATTRIBUTE((__format__(__printf__, 1, 2)))
-XSUM_API int XSUM_log(const char *format, ...);
-
-/*
- * Like XSUM_log, but only outputs if XSUM_logLevel >= minLevel.
- */
-XSUM_ATTRIBUTE((__format__(__printf__, 2, 3)))
-XSUM_API int XSUM_logVerbose(int minLevel, const char *format, ...);
-
-/*
- * Same as printf(format, ...)
- */
-XSUM_ATTRIBUTE((__format__(__printf__, 1, 2)))
-XSUM_API int XSUM_output(const char *format, ...);
-
-#ifdef __cplusplus
+const char* XSUM_autox86(void)
+{
+    int vecVersion = XXH_featureTest();
+    switch(vecVersion) {
+        case XXH_SCALAR:
+            return "x86 autoVec (scalar: no vector extension detected)";
+        case XXH_SSE2:
+            return "x86 autoVec (SSE2 detected)";
+        case XXH_AVX2:
+            return "x86 autoVec (AVX2 detected)";
+        case XXH_AVX512:
+            return "x86 autoVec (AVX512 detected)";
+        default:;
+    }
+    return " autoVec (error detecting vector extension)";
 }
-#endif
 
-#endif /* XSUM_OUTPUT_H */
+#endif /* XXHSUM_DISPATCH */
+#endif /* x86 */
