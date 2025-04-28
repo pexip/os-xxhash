@@ -1,3 +1,51 @@
+xxhash (0.8.3-2) unstable; urgency=medium
+
+  * Fix FTBFS by adding specific symbols for i386 and amd64.
+    (Closes: #1092100)
+
+ -- Josue Ortega <josue@debian.org>  Sat, 04 Jan 2025 17:06:24 -0600
+
+xxhash (0.8.3-1) unstable; urgency=medium
+
+  * New upstream release 0.8.3:
+  * Update libxxhash0.symbols file:
+    + Add XXH_featureTest@Base symbol.
+    + Update debian/rules to export LIBXXH_DISPATCH enabling dispatch
+      symbols that were disabled by upstream.
+  * Update copyright holder year for debian/*.
+  * Add Build-Depends-Package entry to libxxhash0.symbols
+  * Bump Standards-Version to 4.7.0. No changes were required.
+
+ -- Josue Ortega <josue@debian.org>  Fri, 03 Jan 2025 16:30:13 -0600
+
+xxhash (0.8.2-2) unstable; urgency=medium
+
+  * d/patches: fix libxxhash.pc.in. (Closes: #1051776). Thanks to
+    Michael R. Crusoe <crusoe@debian.org> for the patch.
+
+ -- Josue Ortega <josue@debian.org>  Tue, 12 Sep 2023 18:16:00 +0530
+
+xxhash (0.8.2-1) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Trim trailing whitespace.
+  * Update standards version to 4.6.1, no changes needed.
+
+  [ Josue Ortega ]
+  * New upstream release (0.8.2):
+    + Refresh debian/patches.
+  * debian/copyright:
+    + Fix GPL-2+ version. Thanks to Bastian Germann
+      <bage@debian.org>. (Closes: #1012005).
+    + Update copyright years.
+  * debian/watch: Update watch file. Thanks to
+    Patrice Duroux <patrice.duroux@gmail.com> for the patch.
+    Closes: #1050859.
+  * debian/rules: Add hardening flags.
+  * Bump Standards-Version to 4.6.2. No changes required.
+
+ -- Josue Ortega <josue@debian.org>  Sun, 10 Sep 2023 15:19:16 +0530
+
 xxhash (0.8.1-1+pexip24u3) pexip-bookworm; urgency=medium
 
   * New versioning scheme
@@ -72,7 +120,7 @@ xxhash (0.8.0-2pexip1) pexip; urgency=medium
 xxhash (0.8.0-2) unstable; urgency=medium
 
   * Use hardware-accelerated XXH3 computation on x86 architecture, and
-    install the hardware-accelerating header file. 
+    install the hardware-accelerating header file.
     Thanks to Julian Andres Klode. (Closes: #977345)
   * Cherry-pick upstream: Fix empty version in .pc file (Closes: #979758)
 
