@@ -1,3 +1,9 @@
+xxhash (0.8.3-2+pexip25u1) pexip-trixie; urgency=medium
+
+  * Initial trixie build
+
+ -- Mark Hymers <mark.hymers@pexip.com>  Tue, 29 Apr 2025 23:00:18 +0100
+
 xxhash (0.8.3-2) unstable; urgency=medium
 
   * Fix FTBFS by adding specific symbols for i386 and amd64.
